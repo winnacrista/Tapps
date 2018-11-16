@@ -1,0 +1,26 @@
+sudo : required
+dist: trusty
+language: php 
+
+php:
+	-7.1
+	
+brances :
+	only:
+		-master #-> Staging Server
+		-develop #-> DevServer
+		
+#sebelum melakukan atau eksekusi script
+#instal kebutuhan os
+before_install:
+	-curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stabel.txt)/bin/linux/amd64/kubect1
+	-chmod+x.kubect1
+	-sudo mv ./kubect/usr/local/bin/kubect1
+	-kubect1
+
+#pre eksecution
+before_script:
+
+
+#main execution
+script:
